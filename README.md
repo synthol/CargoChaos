@@ -2,7 +2,7 @@
 
 ![cargo_chaos](https://user-images.githubusercontent.com/36903616/235372876-729b0ddd-385c-497d-bb48-7912e8bbbb01.png)
 
-Cargo Chaos is a top-down cargo delivery game made in Python using Pygame. Cargo Chaos was made for Ludum Dare 53 and has been submitted under "The Jam" format. The theme as you might guess is "Delivery" hence the reason behind the delivery of cargo. Cargo Chaos was my first Ludum Dare submission ever. You can view the Ludum Dare submission over at [posthere.com](https://posthere.com)
+Cargo Chaos is a top-down cargo delivery game made in Python using Pygame. Cargo Chaos was made for Ludum Dare 53 and has been submitted under "The Jam" format. The theme as you might guess is "Delivery" hence the reason behind the delivery of cargo. Cargo Chaos was my first Ludum Dare submission ever. You can view the Ludum Dare submission over at [ldjam.com/events/ludum-dare/53/cargo-chaos](https://ldjam.com/events/ludum-dare/53/cargo-chaos)
 
 ***
 
@@ -17,7 +17,7 @@ Cargo Chaos is a top-down cargo delivery game made in Python using Pygame. Cargo
 ***
 
 # How to Play
-- Moving the car is done by using the `A` and `D` or `Left Arrow` and `Right Arrow` keys.
+- Moving the car is done by pressing the `A` and `D` or `Left Arrow` and `Right Arrow` keys.
 - Collect cargo which are the brown bags.
 - Increase the score by delivering the cargo to the green X.
 - Avoid the traffic cone obstacles otherwise the game ends.
