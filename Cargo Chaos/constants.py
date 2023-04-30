@@ -1,0 +1,11 @@
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 600
+SPAWN_DELAY = 1000
+FPS = 60
+SPEED = 5
+INITIAL_SCORE = 0
+VEHICLE_IMG = 'img/vehicle.png'
+OBSTACLE_IMG = 'img/obstacle.png'
+ROAD_IMG = 'img/road.png'
+CARGO_IMG = 'img/cargo.png'
+DELIVERY_IMG = 'img/delivery.png'
