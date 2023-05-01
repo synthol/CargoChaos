@@ -1,7 +1,7 @@
 import pygame
 import sys
 import os
-from constants import WINDOW_WIDTH, WINDOW_HEIGHT, INITIAL_SCORE
+from constants import resource_path, WINDOW_WIDTH, WINDOW_HEIGHT, INITIAL_SCORE
 
 def draw_game_over_screen(screen, game_over_text, score_text, restart_button, exit_button, restart_text, exit_text, mouse_pos):
   screen.fill((50, 50, 50))
@@ -50,7 +50,7 @@ def show_game_over_screen(score_ref, screen, font, vehicle):
         score_ref[0] = INITIAL_SCORE
         vehicle.cargo_count = 0
         score_text = font.render(f"Score: {score_ref[0]}", True, (255, 255, 255))
-        soundtrack_path = os.path.join("sound", "soundtrack.wav")
+        soundtrack_path = resource_path(os.path.join("assets", "sound", "soundtrack.wav"))
         pygame.mixer.music.load(soundtrack_path)
         pygame.mixer.music.set_volume(0.2)
         pygame.mixer.music.play(-1)

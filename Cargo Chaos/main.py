@@ -1,9 +1,9 @@
 import pygame
 import sys
 import os
-from constants import WINDOW_WIDTH, WINDOW_HEIGHT, SPAWN_DELAY, FPS, SPEED, INITIAL_SCORE
+from constants import resource_path, WINDOW_WIDTH, WINDOW_HEIGHT, FPS, SPEED, INITIAL_SCORE
 from sprites import Vehicle, Road
-from game_utils import update_score, spawn_objects
+from game_utils import update_score, adjusted_spawn_delay, spawn_objects
 from collisions import handle_collisions
 from game_over import show_game_over_screen
 
@@ -11,7 +11,7 @@ def initialize_game():
   pygame.init()
   screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
   pygame.display.set_caption("Cargo Chaos")
-  vehicle = Vehicle(WINDOW_WIDTH // 2 - 32, WINDOW_HEIGHT // 2 - 50)
+  vehicle = Vehicle(WINDOW_WIDTH // 2 - 32, WINDOW_HEIGHT - 250)
   roads = [Road(0, 0)]
   all_sprites = pygame.sprite.LayeredUpdates()
   cargo_sprites = pygame.sprite.LayeredUpdates()
@@ -40,7 +40,7 @@ def main():
   score_text = font.render(f"Score: {score}", True, (255, 255, 255))
   clock = pygame.time.Clock()
   spawn_timer = pygame.time.get_ticks()
-  soundtrack_path = os.path.join("sound", "soundtrack.wav")
+  soundtrack_path = resource_path(os.path.join("assets", "sound", "soundtrack.wav"))
   pygame.mixer.music.load(soundtrack_path)
   pygame.mixer.music.set_volume(0.2)
   pygame.mixer.music.play(-1)
@@ -66,11 +66,10 @@ def main():
       vehicle.cargo_count += 1
       delattr(vehicle, 'current_cargo')
 
-    score = update_score(vehicle, score, delivery_collision, font)
+    score = update_score(vehicle, score, delivery_collision)
     score_text = font.render(f"Score: {score}", True, (255, 255, 255))
     move_and_remove_obstacles_and_cargos(obstacle_sprites, cargo_sprites, delivery_sprites, all_sprites)
-    current_time = pygame.time.get_ticks()
-    spawn_timer = spawn_objects(current_time, spawn_timer, SPAWN_DELAY, obstacle_sprites, cargo_sprites, delivery_sprites, all_sprites, vehicle)
+    spawn_timer = spawn_objects(pygame.time.get_ticks(), spawn_timer, adjusted_spawn_delay(score), obstacle_sprites, cargo_sprites, delivery_sprites, all_sprites, vehicle)
     draw_game(screen, all_sprites, score_text)
     clock.tick(FPS)
 
@@ -78,7 +77,7 @@ def reset_game(vehicle, all_sprites, obstacle_sprites, cargo_sprites, delivery_s
   spawn_timer = pygame.time.get_ticks()
   score = INITIAL_SCORE
   vehicle.rect.x = WINDOW_WIDTH // 2 - 32
-  vehicle.rect.y = WINDOW_HEIGHT // 2 - 50
+  vehicle.rect.y = WINDOW_HEIGHT - 250
   obstacle_sprites.empty()
   all_sprites.empty()
   cargo_sprites.empty()
