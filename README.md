@@ -2,7 +2,7 @@
 
 ![cargo_chaos](https://user-images.githubusercontent.com/36903616/235818735-8e2b7d8f-224f-4da1-8077-58e06b90526d.png)
 
-Cargo Chaos is a top-down cargo delivery game made in Python using Pygame. Cargo Chaos was made for Ludum Dare 53 and has been submitted under "The Jam" format. The theme as you might guess is "Delivery" hence the reason behind the delivery of cargo. Cargo Chaos was my first Ludum Dare submission ever. You can view the Ludum Dare submission over at [Ludum Dare 53](https://ldjam.com/events/ludum-dare/53/cargo-chaos)
+Cargo Chaos is a simple top-down cargo delivery game made in Python using Pygame. Cargo Chaos was made for Ludum Dare 53 and has been submitted under "The Jam" format. The theme as you might guess is "Delivery" hence the reason behind the delivery of cargo. Cargo Chaos was my first Ludum Dare submission ever. You can view the Ludum Dare submission over at [Ludum Dare 53](https://ldjam.com/events/ludum-dare/53/cargo-chaos)
 
 ***
 
