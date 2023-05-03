@@ -44,7 +44,6 @@ def show_game_over_screen(score_ref, screen, font, vehicle):
     draw_game_over_screen(screen, game_over_text, score_text, restart_button, exit_button, restart_text, exit_text, mouse_pos)
     mouse_pos = handle_game_over_events()
     pygame.mixer.music.set_volume(0.0)
-    
     if mouse_pos is not None:
       if restart_button.collidepoint(mouse_pos):
         score_ref[0] = INITIAL_SCORE

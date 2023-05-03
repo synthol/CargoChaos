@@ -10,6 +10,7 @@ class Vehicle(pygame.sprite.Sprite):
     self.rect.x = x
     self.rect.y = y
     self.cargo_count = 0
+    self.max_cargo_count = 3
 
   def update(self, x, y):
     old_x = self.rect.x
