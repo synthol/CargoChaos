@@ -3,22 +3,17 @@ import sys
 import os
 from constants import resource_path, WINDOW_WIDTH, WINDOW_HEIGHT, INITIAL_SCORE
 
+def draw_button(screen, button, mouse_pos, text):
+  if button.collidepoint(mouse_pos): pygame.draw.rect(screen, (130, 130, 130), button)
+  else: pygame.draw.rect(screen, (100, 100, 100), button)
+  screen.blit(text, (button.x + button.width // 2 - text.get_width() // 2, button.y + button.height // 2 - text.get_height() // 2))
+
 def draw_game_over_screen(screen, game_over_text, score_text, restart_button, exit_button, restart_text, exit_text, mouse_pos):
   screen.fill((50, 50, 50))
   screen.blit(game_over_text, (WINDOW_WIDTH // 2 - 70, WINDOW_HEIGHT // 2 - 50))
   screen.blit(score_text, (WINDOW_WIDTH // 2 - 50, WINDOW_HEIGHT // 2 - 20))
-
-  if restart_button.collidepoint(mouse_pos):
-    pygame.draw.rect(screen, (130, 130, 130), restart_button)
-  else:
-    pygame.draw.rect(screen, (100, 100, 100), restart_button)
-  if exit_button.collidepoint(mouse_pos):
-    pygame.draw.rect(screen, (130, 130, 130), exit_button)
-  else:
-    pygame.draw.rect(screen, (100, 100, 100), exit_button)
-
-  screen.blit(restart_text, (restart_button.x + restart_button.width // 2 - restart_text.get_width() // 2, restart_button.y + restart_button.height // 2 - restart_text.get_height() // 2))
-  screen.blit(exit_text, (exit_button.x + exit_button.width // 2 - exit_text.get_width() // 2, exit_button.y + exit_button.height // 2 - exit_text.get_height() // 2))
+  draw_button(screen, restart_button, mouse_pos, restart_text)
+  draw_button(screen, exit_button, mouse_pos, exit_text)
   pygame.display.flip()
 
 def handle_game_over_events():
@@ -26,12 +21,10 @@ def handle_game_over_events():
     if event.type == pygame.QUIT:
       pygame.quit()
       sys.exit()
-    if event.type == pygame.MOUSEBUTTONDOWN:
-      return pygame.mouse.get_pos()
+    if event.type == pygame.MOUSEBUTTONDOWN: return pygame.mouse.get_pos()
   return None
 
 def show_game_over_screen(score_ref, screen, font, vehicle):
-  game_over = True
   game_over_text = font.render("Game Over!", True, (255, 255, 255))
   score_text = font.render(f"Score: {score_ref[0]}", True, (255, 255, 255))
   restart_button = pygame.Rect(WINDOW_WIDTH // 2 - 110, WINDOW_HEIGHT // 2 + 30, 100, 30)
@@ -39,7 +32,7 @@ def show_game_over_screen(score_ref, screen, font, vehicle):
   restart_text = font.render("Restart", True, (255, 255, 255))
   exit_text = font.render("Exit", True, (255, 255, 255))
 
-  while game_over:
+  while True:
     mouse_pos = pygame.mouse.get_pos()
     draw_game_over_screen(screen, game_over_text, score_text, restart_button, exit_button, restart_text, exit_text, mouse_pos)
     mouse_pos = handle_game_over_events()

@@ -1,18 +1,10 @@
 import sys
 import os
 
-def resource_path(relative_path):
-  if hasattr(sys, "_MEIPASS"):
-    return os.path.join(sys._MEIPASS, relative_path)
-  return os.path.join(os.path.abspath("."), relative_path)
+WINDOW_WIDTH, WINDOW_HEIGHT, FPS, SPEED, INITIAL_SCORE = 800, 600, 60, 5, 0
+temp_resource_path = lambda p: os.path.join(getattr(sys, '_MEIPASS', os.path.abspath('.')), p)
+IMG_PATHS = {k: temp_resource_path(os.path.join("assets", "img", f"{k}.png")) for k in ["vehicle", "obstacle", "road", "cargo", "delivery", "boost"]}
 
-WINDOW_WIDTH = 800
-WINDOW_HEIGHT = 600
-FPS = 60
-SPEED = 5
-INITIAL_SCORE = 0
-VEHICLE_IMG = resource_path(os.path.join("assets", "img", "vehicle.png"))
-OBSTACLE_IMG = resource_path(os.path.join("assets", "img", "obstacle.png"))
-ROAD_IMG = resource_path(os.path.join("assets", "img", "road.png"))
-CARGO_IMG = resource_path(os.path.join("assets", "img", "cargo.png"))
-DELIVERY_IMG = resource_path(os.path.join("assets", "img", "delivery.png"))
+def resource_path(relative_path):
+  base_path = getattr(sys, '_MEIPASS', os.path.abspath('.'))
+  return os.path.join(base_path, relative_path)
