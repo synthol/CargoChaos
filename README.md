@@ -1,4 +1,6 @@
-# Cargo Chaos [![License](https://img.shields.io/badge/License-MIT-green)](https://github.com/synthol/CargoChaos/blob/master/LICENSE) [![Download](https://img.shields.io/badge/-Download-blue)](https://github.com/synthol/CargoChaos/releases/tag/v1.3)
+# Cargo Chaos [![License](https://img.shields.io/badge/License-MIT-red)](https://github.com/synthol/CargoChaos/blob/master/LICENSE)
+
+![Downloads](https://img.shields.io/github/downloads/synthol/CargoChaos/total?color=blue&label=Downloads&style=for-the-badge) [![Download](https://img.shields.io/badge/-Download-green/total?color=green&label=&style=for-the-badge)](https://github.com/synthol/CargoChaos/releases/download/v1.3/CargoChaos.exe)
 
 ![cargo_chaos](https://user-images.githubusercontent.com/36903616/236533702-a59c5022-5aed-4437-84a6-50a0074b97b9.png)
 
